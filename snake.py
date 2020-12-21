@@ -6,12 +6,17 @@ from turtle import Turtle
 # snake individual parts stored in a list(snake_parts) - start position of each part
 SNAKE_COORDINATES = [-20, -30, 0]
 MOVE_DISTANCE = 20
+UP = 90
+LEFT = 180
+RIGHT = 0
+DOWN = 270
 
 
 class Snake:
     def __init__(self):
         self.snake_parts = []
         self.create_snake()
+        self.head = self.snake_parts[0]
 
     def create_snake(self):
         # create a new object for each number in range func and add it to snake_parts list
@@ -32,3 +37,25 @@ class Snake:
             new_y = self.snake_parts[snake_part - 1].ycor()
             self.snake_parts[snake_part].goto(new_x, new_y)
         self.snake_parts[0].forward(MOVE_DISTANCE)
+
+    
+    # snake movements
+    def up(self):
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
+            
+
+    def left(self):
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
+
+
+    def right(self):
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
+
+
+    def down(self):
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
+
