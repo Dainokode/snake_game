@@ -1,5 +1,6 @@
 from turtle import Turtle, Screen
 from snake import Snake
+from food import Food
 import time
 
 
@@ -13,6 +14,7 @@ screen.title("Play Snake")
 
 # init snake object from Snake class
 snake = Snake()
+food = Food()
 
 # listen for events
 screen.listen()
@@ -29,6 +31,9 @@ while is_game_on:
     time.sleep(0.1)
     # call move func from Snake class
     snake.move()
+    # detect food collision - change food position
+    if snake.head.distance(food) < 15:
+        food.refresh_position()
 
 
         
