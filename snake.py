@@ -39,6 +39,16 @@ class Snake:
         self.snake_parts[0].forward(MOVE_DISTANCE)
 
     
+    def add_part(self):
+        new_snake_part = Turtle()
+        new_snake_part.penup()
+        new_snake_part.color("white")
+        new_snake_part.shape("square")
+        new_snake_part.shapesize(1.5)
+        self.snake_parts.append(new_snake_part)
+
+
+    
     # snake movements
     def up(self):
         if self.head.heading() != DOWN:

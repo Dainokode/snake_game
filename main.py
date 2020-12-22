@@ -38,9 +38,22 @@ while is_game_on:
         food.refresh_position()
         # update score
         score.increase_score()
-        
-        
+        # increase snake size
+        snake.add_part()
 
+    
+    # detect tail collision
+    if snake.head.xcor() > 280 or snake.head.xcor() < - 280 or snake.head.ycor() > 280 or snake.head.ycor() < - 280:
+        is_game_on = False
+        score.game_over_message()
 
+    for part in snake.snake_parts:
+        if part == snake.head:
+            pass
+        elif snake.head.distance(part) < 15:
+            is_game_on = False
+            score.game_over_message()
+
+        
         
 screen.exitonclick()
