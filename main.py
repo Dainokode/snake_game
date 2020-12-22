@@ -47,10 +47,8 @@ while is_game_on:
         is_game_on = False
         score.game_over_message()
 
-    for part in snake.snake_parts:
-        if part == snake.head:
-            pass
-        elif snake.head.distance(part) < 15:
+    for part in snake.snake_parts[1:]:
+        if snake.head.distance(part) < 15:
             is_game_on = False
             score.game_over_message()
 
