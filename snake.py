@@ -3,7 +3,7 @@ from turtle import Turtle
 
 # CONSTANT VARIABLES:
 
-# snake individual parts stored in a list(snake_parts) - start position of each part
+# snake individual parts stored in a list(snake_parts) - start position of each part + headings variables
 SNAKE_COORDINATES = [-20, -30, 0]
 MOVE_DISTANCE = 20
 UP = 90
@@ -43,7 +43,7 @@ class Snake:
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
-            
+
 
     def left(self):
         if self.head.heading() != RIGHT:
