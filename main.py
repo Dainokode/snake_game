@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 from snake import Snake
 from food import Food
+from score import Score
 import time
 
 
@@ -12,9 +13,10 @@ screen.tracer(0)
 screen.title("Play Snake")
 
 
-# init snake object from Snake class
+# init objects
 snake = Snake()
 food = Food()
+score = Score()
 
 # listen for events
 screen.listen()
@@ -34,6 +36,10 @@ while is_game_on:
     # detect food collision - change food position
     if snake.head.distance(food) < 15:
         food.refresh_position()
+        # update score
+        score.increase_score()
+        
+        
 
 
         
